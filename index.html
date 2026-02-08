@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Instructions (moved as comment so HTML remains valid) -->
+    <!--
+      Move the CodeSandbox project to your computer, create a new GitHub repository with it 
+      and deploy your code to Netlify.
+
+      Submit your Netlify URL linking to your project. Include a link to your GitHub profile, 
+      GitHub repository at the bottom, and Netlify URL of your project page. 
+      You should not add functionalities to your project.
+
+      Note: Netlify is our top choice for showcasing hosting platforms in our workshops. 
+      However, Netlify may have issues in certain countries, so in this case, you might want 
+      to consider trying out Render or Vercel instead. They could be a great alternative!
+    -->
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <title>My Weather Application</title>
+
+    <!-- Styles -->
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background: #f5f5f5;
+      }
+
+      .weather-app {
+        max-width: 600px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      header {
+        margin-bottom: 30px;
+      }
+
+      .search-input {
+        padding: 10px;
+        width: 70%;
+      }
+
+      .search-button {
+        padding: 10px 15px;
+      }
+
+      .current-weather {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .current-city {
+        margin: 0;
+        font-size: 32px;
+      }
+
+      .current-details {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .current-temperature {
+        display: flex;
+        align-items: center;
+        gap: 6px; /* keeps ☀️ 24 °C nicely grouped */
+        font-size: 48px;
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 13px;
+        color: #777;
+      }
+
+      footer a {
+        color: #555;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="weather-app">
+      <header>
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
+        </form>
+      </header>
+
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city" id="current-city">Paris</h1>
+
+            <p class="current-details">
+              <span id="current-day-time">Sunday 15:39</span>,
+              <span id="weather-description">moderate rain</span>
+              <br />
+              Humidity: <strong id="humidity">87%</strong>, Wind:
+              <strong id="wind">7.2 km/h</strong>
+            </p>
+          </div>
+
+          <div class="current-temperature">
+            <span>☀️</span>
+            <span id="current-temperature">24</span>
+            <span>°C</span>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          This project was coded by
+          <a href="https://www.shecodes.io/" target="_blank">
+            Nomfundiso Yolanda Mbange
+          </a>
+          and is open-sourced on
+          <a href="https://github.com/" target="_blank">GitHub</a>
+          and hosted on
+          <a href="https://vercel.com/" target="_blank">Vercel</a>.
+        </p>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/index.js"></script>
+  </body>
+</html>
